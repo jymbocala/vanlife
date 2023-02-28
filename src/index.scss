@@ -31,6 +31,11 @@ header {
     color: $dark;
   }
 
+  nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+
   a {
     /* border: 1px red solid; */
     display: flex;
