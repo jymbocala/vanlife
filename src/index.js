@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import "./index.css";
+import "./index.scss";
 import About from "./pages/About";
 import Home from "./pages/Home";
 
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <React.StrictMode>
         <header>
-          <Link to="/" class="nav__logo">#VANLIFE</Link>
+          <Link to="/" class="site-logo">#VANLIFE</Link>
           <nav>
             <Link to="/about">About</Link>
           </nav>
