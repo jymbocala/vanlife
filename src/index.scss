@@ -163,7 +163,7 @@ header {
 }
 
 .van-list {
-  border: 1px red solid;
+  // border: 1px red solid;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
@@ -171,10 +171,10 @@ header {
   margin-top: 4rem;
 }
 
-// .van-tile a {
-//   color: #161616;
-//   text-decoration: none;    
-// }
+.van-tile a {
+  color: #161616;
+  text-decoration: none;    
+}
 
 // .van-tile {
 //   border: 1px red solid;
