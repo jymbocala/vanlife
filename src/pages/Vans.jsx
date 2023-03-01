@@ -29,9 +29,11 @@ export default function Vans() {
   });
 
   return (
-    <>
-      <h1>Vans Page!</h1>
-      {vansElements}
-    </>
+    <div className="van-list-container">
+            <h1>Explore our van options</h1>
+            <div className="van-list">
+                {vansElements}
+            </div>
+        </div>
   );
 }
