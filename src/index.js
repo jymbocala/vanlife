@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <React.StrictMode>
         <header>
-          <Link to="/" class="site-logo">
+          <Link to="/" className="site-logo">
             #VANLIFE
           </Link>
           <nav>
