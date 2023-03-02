@@ -157,10 +157,10 @@ header {
   padding-inline: 1.5rem;
 }
 
-.van-list-container button {
-  margin-right: 20px;
-  cursor: pointer;
-}
+// .van-list-container button {
+//   margin-right: 20px;
+//   cursor: pointer;
+// }
 
 .van-list {
   // border: 1px red solid;
@@ -239,31 +239,31 @@ header {
 // }
 
 .van-detail-container {
-  padding: 27px;
+  padding: 1.5rem;
 }
 
-.van-detail-container .back-button {
-  color: black;
-  text-decoration: none;
-}
+// .van-detail-container .back-button {
+//   color: black;
+//   text-decoration: none;
+// }
 
-.van-detail-container .back-button:visited {
+// .van-detail-container .back-button:visited {
   
-}
+// }
 
-.van-detail-container .back-button span {
-  text-decoration: underline;
-}
+// .van-detail-container .back-button span {
+//   text-decoration: underline;
+// }
 
 .van-detail {
   display: flex;
   flex-direction: column;
-  color: #161616;
+  color: $dark;
 }
 
 .van-detail img {
   border-radius: 5px;
-  margin-block: 47px;
+  margin-block: 3rem;
 }
 
 .van-detail h2 {

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"
-import "../server";
+import { Link } from "react-router-dom";
+import "../server"; // import database using mirage js
 
 export default function Vans() {
   const [vans, setVans] = useState([]);
 
+  // fetch all van details (mirage js intercepts this fetch request to get data from our server)
   useEffect(() => {
     fetch("/api/vans/")
       .then((res) => res.json())
@@ -13,6 +14,7 @@ export default function Vans() {
       });
   }, []);
 
+  // map our vans data object into jsx elements
   const vansElements = vans.map((van) => {
     return (
       <div key={van.id} className="van-tile">

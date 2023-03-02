@@ -5,19 +5,20 @@ export default function VanDetail() {
   const params = useParams();
   const [van, setVan] = useState(null);
 
+  // fetch van details using params and set van state
   useEffect(() => {
     fetch(`/api/vans/${params.id}`)
       .then((res) => res.json())
       .then((data) => setVan(data.vans));
-  }, []);
+  }, [params.id]);
 
-  console.log(van);
 
   return (
     <div className="van-detail-container">
+      {/* conditionally render elements if van has data to handle loading */}
       {van ? (
         <div className="van-detail">
-          <img src={van.imageUrl} />
+          <img src={van.imageUrl} alt=""/>
           <i className={`van-type ${van.type} selected`}>{van.type}</i>
           <h2>{van.name}</h2>
           <p className="van-price">
