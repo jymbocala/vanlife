@@ -90,6 +90,12 @@ footer {
   transform: translate(1px, 1px);
 }
 
+.selected-link {
+  font-weight: bold;
+  text-decoration: underline;
+  color: #161616;
+}
+
 /*** HOME PAGE ***/
 .home-container {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
