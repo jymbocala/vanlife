@@ -79,5 +79,18 @@ createServer({
       const id = request.params.id;
       return schema.vans.find(id);
     });
+
+    // Hard-coded specific end points for the currently "logged in host"
+    this.get("/host/vans", (schema, request) => {
+      // Hard-code the hostId for now
+      // Searching where the hostId is "123"
+      return schema.vans.where({ hostId: "123" });
+    });
+
+    this.get("/host/vans/:id", (schema, request) => {
+      // Hard-code the hostId for now
+      const id = request.params.id;
+      return schema.vans.where({ id, hostId: "123" });
+    });
   },
 });
