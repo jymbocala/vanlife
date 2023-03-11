@@ -7,12 +7,11 @@ export default function HostLayout() {
     fontWeight: "bold",
     textDecoration: "underline",
     color: "#161616",
-  }
+  };
 
   return (
     <>
       <nav className="host-nav">
-
         <NavLink
           to="/host"
           end
@@ -41,7 +40,6 @@ export default function HostLayout() {
         >
           Reviews
         </NavLink>
-
       </nav>
       <Outlet />
     </>

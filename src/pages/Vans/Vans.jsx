@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../server"; // import database using mirage js
+import "../../server"; // import database using mirage js
 
 export default function Vans() {
   const [vans, setVans] = useState([]);
