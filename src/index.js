@@ -4,15 +4,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.scss";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Vans from "./pages/Vans";
-import VanDetail from "./pages/VanDetail";
+import Vans from "./pages/Vans/Vans";
+import VanDetail from "./pages/Vans/VanDetail";
 import Layout from "./components/Layout";
 import Dashboard from "./pages/Host/Dashboard";
 import Income from "./pages/Host/Income";
 import Reviews from "./pages/Host/Reviews";
-import HostVans from "./pages/Host/HostVans";
-import HostVanDetail from "./pages/Host/HostVanDetail";
+import HostVans from "./pages/Host/HostVans/HostVans";
 import HostLayout from "./components/HostLayout";
+import HostVanLayout from "./components/HostVanLayout";
+import Details from "./pages/Host/HostVans/Host Vans Details/Details";
+import Pricing from "./pages/Host/HostVans/Host Vans Details/Pricing";
+import Photos from "./pages/Host/HostVans/Host Vans Details/Photos";
 
 
 function App() {
@@ -30,7 +33,13 @@ function App() {
               <Route index element={<Dashboard />} />
               <Route path="income" element={<Income />} />
               <Route path="vans" element={<HostVans />} />
-              <Route path="vans/:id" element={<HostVanDetail />} />
+
+              <Route path="vans/:id" element={<HostVanLayout />}>
+                <Route index element={<Details />} />
+                <Route path="pricing" element={<Pricing />} />
+                <Route path="photos" element={<Photos />} />
+              </Route>
+
               <Route path="reviews" element={<Reviews />} />
             </Route>
           </Route>
