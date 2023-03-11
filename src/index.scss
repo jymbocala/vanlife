@@ -320,8 +320,11 @@ footer {
   font-size: 1.125rem;
 }
 
+
+/*** HOST VAN PAGE ***/
 .host-nav {
   display: flex;
+  margin: 3rem 0;
 }
 
 .host-nav a {
@@ -336,3 +339,42 @@ footer {
   text-decoration: underline;
   font-weight: 600;
 }
+
+.host-van-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.host-van-list a {
+  color: #161616;
+  text-decoration: none;
+}
+
+.host-van-row {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+}
+
+.host-van-row img {
+  width: 10%;
+  height: 10%;
+  border-radius: 5px;
+  margin-right: 2rem;
+}
+
+.host-van-info > h3, p {
+  margin: 0;
+}
+
+.host-van-info p {
+  color: #6e6e6e;
+  font-weight: 600;
+}
+
