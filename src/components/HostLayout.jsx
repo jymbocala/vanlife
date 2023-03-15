@@ -10,7 +10,7 @@ export default function HostLayout() {
   };
 
   return (
-    <>
+    <section className="host-sec">
       <nav className="host-nav">
         <NavLink
           to="/host"
@@ -42,6 +42,6 @@ export default function HostLayout() {
         </NavLink>
       </nav>
       <Outlet />
-    </>
+    </section>
   );
 }

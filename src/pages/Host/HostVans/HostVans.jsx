@@ -16,8 +16,8 @@ export default function HostVans() {
   //map out hostVans data into jsx elements
   const hostVansElements = hostVans.map((van) => {
     return (
-      <Link to={`/host/vans/${van.id}`}>
-        <div key={van.id} className="host-van-row">
+      <Link to={`/host/vans/${van.id}`} key={van.id}>
+        <div className="host-van-row" key={van.id}>
           <img src={van.imageUrl} alt={`${van.name}`} />
           <div className="host-van-info">
             <h3>{van.name}</h3>
