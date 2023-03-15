@@ -17,8 +17,8 @@ export default function Vans() {
   // map our vans data object into jsx elements
   const vansElements = vans.map((van) => {
     return (
-      <div key={van.id} className="van-tile">
-        <Link to={`/vans/${van.id}`}>
+      <Link to={`/vans/${van.id}`}>
+        <div key={van.id} className="van-tile">
           <img src={van.imageUrl} alt={`${van.name}`} />
           <div className="van-info">
             <h3>{van.name}</h3>
@@ -27,9 +27,10 @@ export default function Vans() {
               <span>/day</span>
             </p>
           </div>
+          <br/>
           <i className={`van-type ${van.type} selected`}>{van.type}</i>
-        </Link>
-      </div>
+        </div>
+      </Link>
     );
   });
 

@@ -32,7 +32,7 @@ export default function HostVans() {
   });
 
   return (
-    <div className="van-list-container">
+    <div>
       <h1>Your listed vans</h1>
       <div className="host-van-list">{hostVansElements}</div>
     </div>

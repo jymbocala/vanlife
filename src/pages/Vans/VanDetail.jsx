@@ -13,14 +13,14 @@ export default function VanDetail() {
   }, [params.id]);
 
   return (
-    <>
+    <section className="van-detail-container">
       <Link 
         to=".." 
         relative="path" 
         className="back-button button-icon">
         &#8592; <span>Back to all vans</span>
       </Link>
-      <div className="van-detail-container">
+      <div>
         {/* conditionally render elements if van has data to handle loading */}
         {van ? (
           <div className="van-detail">
@@ -37,6 +37,6 @@ export default function VanDetail() {
           <h2>Loading...</h2>
         )}
       </div>
-    </>
+    </section>
   );
 }

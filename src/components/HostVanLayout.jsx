@@ -28,7 +28,7 @@ export default function HostVanDetail() {
         &#8592; <span>Back to all vans</span>
       </Link>
 
-      <div className="van-detail-container">
+      <div className="host-van-detail-container">
         <div className="host-van-detail">
           <div className="host-van-detail__top">
             <img src={currentVan.imageUrl} alt="" />
