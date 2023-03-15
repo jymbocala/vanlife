@@ -35,6 +35,10 @@ header {
     color: $dark;
   }
 
+  .site-logo:hover {
+    text-decoration: none;
+  }
+
   nav {
     display: flex;
     gap: 1.5rem;
