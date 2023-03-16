@@ -4,7 +4,7 @@ import "../../server"; // import database using mirage js
 
 export default function Vans() {
   const [vans, setVans] = useState([]);
-  const [ searchParams, setSearchParams ] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const typeFilter = searchParams.get("type");
 
@@ -17,8 +17,13 @@ export default function Vans() {
       });
   }, []);
 
+  // filter vans by the type filter if typeFilter is true
+  const displayedVans = typeFilter
+    ? vans.filter((van) => van.type === typeFilter)
+    : vans;
+
   // map our vans data object into jsx elements
-  const vansElements = vans.map((van) => {
+  const vansElements = displayedVans.map((van) => {
     return (
       <Link to={`/vans/${van.id}`} key={van.id}>
         <div key={van.id} className="van-tile">
@@ -30,7 +35,7 @@ export default function Vans() {
               <span>/day</span>
             </p>
           </div>
-          <br/>
+          <br />
           <i className={`van-type ${van.type} selected`}>{van.type}</i>
         </div>
       </Link>
