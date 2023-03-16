@@ -1,4 +1,5 @@
 $light: #fff7ed;
+$champagne: #FFEAD0;
 $dark: #161616;
 $dark-grey: #4d4d4d;
 
@@ -12,6 +13,11 @@ body {
   padding: 0;
   background-color: $light;
   font-family: "Inter", sans-serif;
+}
+
+a {
+  text-decoration: unset;
+  color: unset;
 }
 
 .site-wrapper {
@@ -182,6 +188,15 @@ footer {
   padding: 2rem;
 }
 
+.van-list-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.van-list-filter-buttons > a {
+  margin-right: 15px;
+}
+
 .van-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -207,7 +222,13 @@ footer {
   font-weight: 500;
   border: none;
   border-radius: 5px;
+  background-color: $champagne;
+  color: $dark-grey;
   transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.van-type:hover {
+  color: $champagne;
 }
 
 .van-type > i{
@@ -219,7 +240,7 @@ footer {
 }
 
 .van-type.selected {
-  color: #ffead0;
+  color: $champagne;
 }
 
 .van-type.simple:hover,
