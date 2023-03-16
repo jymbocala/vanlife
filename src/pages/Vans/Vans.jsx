@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import "../../server"; // import database using mirage js
 
 export default function Vans() {
   const [vans, setVans] = useState([]);
+  const [ searchParams, setSearchParams ] = useSearchParams();
+
+  const typeFilter = searchParams.get("type");
 
   // fetch all van details (mirage js intercepts this fetch request to get data from our server)
   useEffect(() => {
@@ -17,7 +20,7 @@ export default function Vans() {
   // map our vans data object into jsx elements
   const vansElements = vans.map((van) => {
     return (
-      <Link to={`/vans/${van.id}`}>
+      <Link to={`/vans/${van.id}`} key={van.id}>
         <div key={van.id} className="van-tile">
           <img src={van.imageUrl} alt={`${van.name}`} />
           <div className="van-info">
