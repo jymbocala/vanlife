@@ -5,6 +5,7 @@ import "./index.scss";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 import Vans from "./pages/Vans/Vans";
 import VanDetail from "./pages/Vans/VanDetail";
 import HostLayout from "./components/HostLayout";
@@ -40,6 +41,8 @@ function App() {
                 <Route path="photos" element={<Photos />} />
               </Route>
             </Route>
+            <Route path="*" element={<NotFound />} />
+
           </Route>
         </Routes>
       </React.StrictMode>
