@@ -7,6 +7,7 @@ export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const typeFilter = searchParams.get("type");
+  
 
   // fetch all van details (mirage js intercepts this fetch request to get data from our server)
   useEffect(() => {
@@ -25,7 +26,11 @@ export default function Vans() {
   // map over the returned displayedVans data object into jsx elements
   const vansElements = displayedVans.map((van) => {
     return (
-      <Link to={`${van.id}`} key={van.id}>
+      <Link
+        to={`${van.id}`}
+        key={van.id}
+        state={{ search: searchParams.toString(), type: typeFilter }}
+      >
         <div key={van.id} className="van-tile">
           <img src={van.imageUrl} alt={`${van.name}`} />
           <div className="van-info">
@@ -43,14 +48,14 @@ export default function Vans() {
   });
 
   function handleFilterChange(key, value) {
-    setSearchParams(prevParams => {
-        if (value === null) {
-            prevParams.delete(key)
-        } else {
-            prevParams.set(key, value)
-        }
-        return prevParams
-    })
+    setSearchParams((prevParams) => {
+      if (value === null) {
+        prevParams.delete(key);
+      } else {
+        prevParams.set(key, value);
+      }
+      return prevParams;
+    });
   }
 
   return (
@@ -89,10 +94,6 @@ export default function Vans() {
             Clear filters
           </button>
         ) : null}
-        {/* <Link to="?type=simple" className={`van-type simple`}>Simple</Link>
-        <Link to="?type=rugged" className={`van-type rugged`}>Rugged</Link>
-        <Link to="?type=luxury" className={`van-type luxury`}>Luxury</Link>
-        <Link to="." className={`van-type clear-filters`}>Clear filters</Link>  */}
       </div>
       <div className="van-list">{vansElements}</div>
     </div>

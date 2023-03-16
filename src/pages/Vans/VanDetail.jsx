@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
 export default function VanDetail() {
   const params = useParams();
   const [van, setVan] = useState(null);
+
+  const location = useLocation();
+  console.log(location);
 
   // fetch van details using params and set van state
   useEffect(() => {
@@ -12,13 +15,17 @@ export default function VanDetail() {
       .then((data) => setVan(data.vans));
   }, [params.id]);
 
+  const search = location.state?.search || "";
+  const linkSpanText = location.state?.type || "all" 
+
   return (
     <section className="van-detail-container">
-      <Link 
-        to=".." 
-        relative="path" 
-        className="back-button button-icon">
-        &#8592; <span>Back to all vans</span>
+      <Link
+        to={`..?${search}`}
+        relative="path"
+        className="back-button button-icon"
+      >
+        &#8592; <span>Back to {`${linkSpanText}`} vans</span>
       </Link>
       <div>
         {/* conditionally render elements if van has data to handle loading */}
