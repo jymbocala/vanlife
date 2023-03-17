@@ -1,21 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import "../../server"; // import database using mirage js
+import { getVans } from "../../utility/api";
 
 export default function Vans() {
   const [vans, setVans] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const typeFilter = searchParams.get("type");
-  
 
   // fetch all van details (mirage js intercepts this fetch request to get data from our server)
   useEffect(() => {
-    fetch("/api/vans/")
-      .then((res) => res.json())
-      .then((data) => {
-        setVans(data.vans);
-      });
+    async function loadVans() {
+      setLoading(true);
+      try {
+        const data = await getVans();
+        setVans(data);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadVans();
   }, []);
 
   // filter vans data by the type filter if typeFilter is true
@@ -56,6 +65,14 @@ export default function Vans() {
       }
       return prevParams;
     });
+  }
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+
+  if (error) {
+    return <h1>There was an error: {error.message}</h1>;
   }
 
   return (
