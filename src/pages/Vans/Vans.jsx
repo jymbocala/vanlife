@@ -3,36 +3,17 @@ import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 import "../../server"; // import database using mirage js
 import { getVans } from "../../utility/api";
 
+// fetch data here rather than using a useEffect inside the component
 export function loader() {
   return getVans();
 }
 
 export default function Vans() {
-  const [vans, setVans] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
-  const data = useLoaderData();
-
-  console.log(data);
+  const vans = useLoaderData();
 
   const typeFilter = searchParams.get("type");
-
-  // fetch all van details (mirage js intercepts this fetch request to get data from our server)
-  useEffect(() => {
-    async function loadVans() {
-      setLoading(true);
-      try {
-        const data = await getVans();
-        setVans(data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    loadVans();
-  }, []);
 
   // filter vans data by the type filter if typeFilter is true
   const displayedVans = typeFilter
@@ -72,10 +53,6 @@ export default function Vans() {
       }
       return prevParams;
     });
-  }
-
-  if (loading) {
-    return <h1>Loading...</h1>;
   }
 
   if (error) {
