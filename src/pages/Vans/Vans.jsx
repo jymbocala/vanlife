@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 import "../../server"; // import database using mirage js
 import { getVans } from "../../utility/api";
+
+export function loader() {
+  return getVans();
+}
 
 export default function Vans() {
   const [vans, setVans] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
+  const data = useLoaderData();
+
+  console.log(data);
 
   const typeFilter = searchParams.get("type");
 
