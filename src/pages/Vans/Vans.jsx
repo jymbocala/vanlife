@@ -9,10 +9,8 @@ export function loader() {
 }
 
 export default function Vans() {
-  // const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const vans = useLoaderData();
-
   const typeFilter = searchParams.get("type");
 
   // filter vans data by the type filter if typeFilter is true
@@ -55,9 +53,6 @@ export default function Vans() {
     });
   }
 
-  // if (error) {
-  //   return <h1>There was an error: {error.message}</h1>;
-  // }
 
   return (
     <div className="van-list-container">

@@ -1,5 +1,16 @@
 import React from "react";
+import { useRouteError } from "react-router-dom";
 
 export default function Error() {
-  return <h1>An error occurred!</h1>;
+  const error = useRouteError();
+  console.log(error);
+
+  return (
+    <>
+      <h1>Error: {error.message}</h1>
+      <pre>
+        {error.status} - {error.statusText}
+      </pre>
+    </>
+  );
 }
