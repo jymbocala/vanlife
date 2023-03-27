@@ -22,12 +22,22 @@ export async function loginUser(creds) {
   const data = await res.json();
 
   if (!res.ok) {
-    throw new Error({
+    // todo: fix "Expected an error object to be thrown"
+    // see explanation below
+    throw {
       message: data.message,
       statusText: res.statusText,
       status: res.status,
-    });
+    };
   }
 
   return data;
 }
+
+
+// EXPLANATION: the code below solves the error mentioned above. However is sends back an [object Oject] to the Login.jsx. How do I extract the message and set it as the error state?
+// throw Error({
+//   message: data.message,
+//   statusText: res.statusText,
+//   status: res.status,
+// });

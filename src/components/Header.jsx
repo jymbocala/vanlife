@@ -27,7 +27,7 @@ export default function Header() {
           Vans
         </NavLink>
         <Link to="login" className="login-link">
-          <i class="ri-account-circle-line login-icon"></i>
+          <i className="ri-account-circle-line login-icon"></i>
         </Link>
       </nav>
     </header>
