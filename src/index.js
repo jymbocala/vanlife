@@ -13,7 +13,7 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Vans, { loader as vansLoader } from "./pages/Vans/Vans";
-import VanDetail from "./pages/Vans/VanDetail";
+import VanDetail, { loader as vanDetailLoader } from "./pages/Vans/VanDetail";
 import HostLayout from "./components/HostLayout";
 import Dashboard from "./pages/Host/Dashboard";
 import Income from "./pages/Host/Income";
@@ -39,7 +39,11 @@ const router = createBrowserRouter(
         loader={vansLoader}
         errorElement={<Error />}
       />
-      <Route path="vans/:id" element={<VanDetail />} />
+      <Route 
+        path="vans/:id" 
+        element={<VanDetail />} 
+        loader={vanDetailLoader}
+      />
 
       <Route element={<AuthRequired />}>
         <Route path="host" element={<HostLayout />}>

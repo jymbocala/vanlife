@@ -1,6 +1,7 @@
 // function to get vans from api. MirageJS intercepts the fetch
 export async function getVans(id) {
-  const res = await fetch(`/api/vans/${id}`);
+  const url = id ? `/api/vans/${id}` : "/api/vans"
+  const res = await fetch(url);
   if (!res.ok) {
     throw new Error({
       message: "Failed to fetch vans",
