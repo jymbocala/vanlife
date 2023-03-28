@@ -1,26 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link, NavLink, Outlet } from "react-router-dom";
+import React from "react";
+import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../../../utility/api";
+
+export function loader({ params }) {
+  return getHostVans(params.id);
+}
 
 export default function HostVanDetail() {
-  const params = useParams();
-  const [currentVan, setCurrentVan] = useState(null);
-
-  // fetch van details using params and set van state
-  useEffect(() => {
-    fetch(`/api/host/vans/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setCurrentVan(data.vans[0]));
-  }, [params.id]);
+  const currentVan = useLoaderData();
 
   const selectedLink = {
     fontWeight: "bold",
     textDecoration: "underline",
     color: "#161616",
   };
-
-  if (!currentVan) {
-    return <h1>Loading...</h1>;
-  }
 
   return (
     <>
@@ -38,7 +31,8 @@ export default function HostVanDetail() {
               </i>
               <h3>{currentVan.name}</h3>
               <h4 className="van-price">
-              ${currentVan.price}<span>/day</span>
+                ${currentVan.price}
+                <span>/day</span>
               </h4>
             </div>
           </div>
@@ -47,27 +41,27 @@ export default function HostVanDetail() {
             <NavLink
               to="."
               end
-              style={({ isActive }) => isActive ? selectedLink : null}
+              style={({ isActive }) => (isActive ? selectedLink : null)}
             >
               Details
             </NavLink>
             <NavLink
               to="pricing"
-              style={({ isActive }) => isActive ? selectedLink : null}
+              style={({ isActive }) => (isActive ? selectedLink : null)}
             >
               Pricing
             </NavLink>
 
             <NavLink
               to="photos"
-              style={({ isActive }) => isActive ? selectedLink : null}
+              style={({ isActive }) => (isActive ? selectedLink : null)}
             >
               Photos
             </NavLink>
           </nav>
-          <hr/>
+          <hr />
 
-          <Outlet context={{currentVan}}/>
+          <Outlet context={{ currentVan }} />
         </div>
       </div>
     </>
