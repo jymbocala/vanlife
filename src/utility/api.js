@@ -1,6 +1,6 @@
 // function to get vans from api. MirageJS intercepts the fetch
-export async function getVans() {
-  const res = await fetch("/api/vans/");
+export async function getVans(id) {
+  const res = await fetch(`/api/vans/${id}`);
   if (!res.ok) {
     throw new Error({
       message: "Failed to fetch vans",
@@ -10,6 +10,20 @@ export async function getVans() {
   }
   const data = await res.json();
   return data.vans;
+}
+
+export async function getHostVans(id) {
+  const url = id ? `/api/host/vans/${id}` : "/api/host/vans"
+  const res = await fetch(url)
+  if (!res.ok) {
+      throw {
+          message: "Failed to fetch vans",
+          statusText: res.statusText,
+          status: res.status
+      }
+  }
+  const data = await res.json()
+  return data.vans
 }
 
 // function that fetches to the login endpoint
