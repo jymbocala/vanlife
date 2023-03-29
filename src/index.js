@@ -25,6 +25,7 @@ import Pricing from "./pages/Host/HostVans/Host Vans Details/Pricing";
 import Photos from "./pages/Host/HostVans/Host Vans Details/Photos";
 import Error from "./components/Error";
 import AuthRequired from "./components/AuthRequired";
+import { requireAuth } from "./utils";
 
 
 const router = createBrowserRouter(
