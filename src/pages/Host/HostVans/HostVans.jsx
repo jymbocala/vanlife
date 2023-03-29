@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { getHostVans } from "../../../utility/api";
+import { getHostVans } from "../../../api";
 
 export function loader() {
-  return getHostVans()
+  return getHostVans();
 }
 
 export default function HostVans() {
@@ -24,7 +24,7 @@ export default function HostVans() {
           </div>
         </div>
       </Link>
-    )
+    );
   });
 
   return (
@@ -32,5 +32,5 @@ export default function HostVans() {
       <h1>Your listed vans</h1>
       <div className="host-van-list">{hostVansElements}</div>
     </div>
-  )
+  );
 }

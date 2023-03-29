@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 import "../../server"; // import database using mirage js
-import { getVans } from "../../utility/api";
+import { getVans } from "../../api";
 
 // fetch data here rather than using a useEffect inside the component
 export function loader() {
@@ -52,7 +52,6 @@ export default function Vans() {
       return prevParams;
     });
   }
-
 
   return (
     <div className="van-list-container">

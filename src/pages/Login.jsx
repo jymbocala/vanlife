@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { loginUser } from "../utility/api";
+import { loginUser } from "../api";
 
 export default function Login() {
   const [loginFormData, setLoginFormData] = React.useState({
@@ -15,7 +15,7 @@ export default function Login() {
   function handleSubmit(e) {
     e.preventDefault();
     setStatus("submitting");
-    // setError to null to reset nullify previous errors if this handleSubmit runs more than once. 
+    // setError to null to reset nullify previous errors if this handleSubmit runs more than once.
     setError(null);
     loginUser(loginFormData)
       .then((data) => {
