@@ -2,8 +2,9 @@ import React from "react";
 import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 import { getHostVans } from "../../../api";
 
-export function loader({ params }) {
-  return getHostVans(params.id);
+export async function loader({ params }) {
+  const selectedHostVan = await getHostVans(params.id);
+  return selectedHostVan[0];
 }
 
 export default function HostVanDetail() {
