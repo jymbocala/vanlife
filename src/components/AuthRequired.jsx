@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, Navigate } from "react-router-dom";
 
-export default function AuthRequired() {
+function AuthRequired() {
   // manually set auth token for now
   const auth = { token: null };
 
