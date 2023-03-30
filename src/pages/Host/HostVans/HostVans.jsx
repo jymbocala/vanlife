@@ -1,8 +1,11 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { getHostVans } from "../../../api";
+import { requireAuth } from "../../../utils";
 
-export function loader() {
+export async function loader() {
+  // error occurs when adding await before requireAuth(), otherwise the error is logged in the console
+  requireAuth();
   return getHostVans();
 }
 
