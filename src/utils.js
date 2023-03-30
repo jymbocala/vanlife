@@ -1,6 +1,6 @@
 import { redirect } from "react-router-dom";
 
-export function requireAuth() {
+export async function requireAuth() {
   const isLoggedIn = false;
 
   if (!isLoggedIn) {
