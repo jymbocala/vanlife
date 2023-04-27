@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { loginUser } from "../api";
 
-export function loader({ request }) {
-  return new URL (request.url).searchParams.get("message");
+export function loader({ request }) { // the request obj is a native web request obj
+  return new URL(request.url).searchParams.get("message");
+  // 
 }
 
 export default function Login() {
