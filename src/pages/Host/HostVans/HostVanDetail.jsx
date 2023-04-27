@@ -4,8 +4,10 @@ import { getHostVans } from "../../../api";
 import { requireAuth } from "../../../utils";
 
 export async function loader({ params }) {
-  await requireAuth();
-  return getHostVans(params.id);
+  // ERR: error occurs when adding await before requireAuth(), otherwise the error is logged in the console
+  await requireAuth(); // await ensures that the functions runs completely before getHostVans function
+  const selectedHostVan = await getHostVans(params.id);
+  return selectedHostVan[0];
 }
 
 export default function HostVanDetail() {
