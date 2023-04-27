@@ -10,4 +10,4 @@ export async function requireAuth() {
 }
 
 // Why turn it into an async function?
-// Commonly we might be reaching out to server, to ensure the the use is currently logged in. Doing that may be an async function. So we don't want requireAuth to kick of a request, and continue making fetches in the loader if the user is not logged in. 
+// Commonly we might be reaching out to server, to ensure the user is currently logged in. Doing that may be an async function. So we don't want requireAuth to kick of a request, and continue making fetches in the loader if the user is not logged in. 

@@ -49,25 +49,22 @@ const router = createBrowserRouter(
         <Route
           index
           element={<Dashboard />}
-          loader={async () => {
-            // error occurs when adding await before requireAuth(), otherwise the error is logged in the console
-            requireAuth();
-            return null
-          }}
+          loader={async () => await requireAuth()}
+          // PREV: loader={async () => {
+          //   // error occurs when adding await before requireAuth(), otherwise the error is logged in the console
+          //   requireAuth();
+          //   return null
+          // }}
         />
         <Route
           path="income"
           element={<Income />}
-          loader={async () => {
-            return null;
-          }}
+          loader={async () => await requireAuth()}
         />
         <Route
           path="reviews"
           element={<Reviews />}
-          loader={async () => {
-            return null;
-          }}
+          loader={async () => await requireAuth()}
         />
         <Route path="vans" element={<HostVans />} loader={hostVansLoader} />
         <Route
@@ -85,16 +82,12 @@ const router = createBrowserRouter(
           <Route
             path="pricing"
             element={<Pricing />}
-            loader={async () => {
-              return null;
-            }}
+            loader={async () => await requireAuth()}
           />
           <Route
             path="photos"
             element={<Photos />}
-            loader={async () => {
-              return null;
-            }}
+            loader={async () => await requireAuth()}
           />
         </Route>
       </Route>
