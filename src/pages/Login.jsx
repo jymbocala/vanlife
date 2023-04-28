@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { loginUser } from "../api";
 
-export function loader({ request }) { // the request obj is a native web request obj
+export function loader({ request }) {
+  // the request obj is a native web request obj
   return new URL(request.url).searchParams.get("message");
-  // 
+  //
 }
 
 export default function Login() {
@@ -24,13 +25,9 @@ export default function Login() {
     // setError to null to reset nullify previous errors if this handleSubmit runs more than once.
     setError(null);
     loginUser(loginFormData)
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        setError(err);
-      })
-      // finally block always run if promise is resolved or rejected
+      .then(data => console.log(data))
+      .catch(err => setError(err))
+      // finally block always run whether the promise is resolved or rejected
       .finally(() => {
         // setStatus to idle so that button doesn't stay disabled
         setStatus("idle");
@@ -51,7 +48,9 @@ export default function Login() {
         <h3 className="login-error">{location.state.message}</h3>
       )} */}
       <h1>Sign in to your account</h1>
-      {loginFirstMessage && <h2 className="login-error">{loginFirstMessage}</h2>}
+      {loginFirstMessage && (
+        <h2 className="login-error">{loginFirstMessage}</h2>
+      )}
       {error && <h3 className="login-error">{error.message}</h3>}{" "}
       <form onSubmit={handleSubmit} className="login-form">
         <input
@@ -68,7 +67,7 @@ export default function Login() {
           placeholder="Password"
           value={loginFormData.password}
         />
-        <button disabled={status === "submitting" ? true : false}>
+        <button disabled={status === "submitting"}>
           {status === "submitting" ? "Logging in..." : "Log in"}
         </button>
       </form>
