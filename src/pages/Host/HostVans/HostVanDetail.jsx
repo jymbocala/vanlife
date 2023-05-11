@@ -3,9 +3,9 @@ import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 import { getHostVans } from "../../../api";
 import { requireAuth } from "../../../utils";
 
-export async function loader({ params }) {
+export async function loader({ params, request }) {
   // ERR: error occurs when adding await before requireAuth(), otherwise the error is logged in the console
-  await requireAuth(); // await ensures that the functions runs completely before getHostVans function
+  await requireAuth(request); // await ensures that the functions runs completely before getHostVans function
   const selectedHostVan = await getHostVans(params.id);
   return selectedHostVan[0];
 }
