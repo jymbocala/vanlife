@@ -11,7 +11,6 @@ import { loginUser } from "../api";
 export function loader({ request }) {
   // the request obj is a native web request obj
   return new URL(request.url).searchParams.get("message");
-  //
 }
 
 export async function action({ request }) {
@@ -31,16 +30,12 @@ export async function action({ request }) {
 }
 
 export default function Login() {
-  // const location = useLocation(); // this gets the link state from AuthRequired component
   const status = useNavigation().state;
   const loginFirstMessage = useLoaderData();
   const errorMessage = useActionData();
 
   return (
     <div className="login-container">
-      {/* {location.state?.message && (
-        <h3 className="login-error">{location.state.message}</h3>
-      )} */}
       <h1>Sign in to your account</h1>
       {loginFirstMessage && (
         <h2 className="login-error">{loginFirstMessage}</h2>
