@@ -1,11 +1,15 @@
 import React from "react";
-import { Link, useSearchParams, useLoaderData } from "react-router-dom";
+import { Link, 
+  useSearchParams, 
+  useLoaderData,
+  defer 
+} from "react-router-dom";
 import "../../server"; // import database using mirage js
 import { getVans } from "../../api";
 
 // fetch data here rather than using a useEffect inside the component
 export function loader() {
-  return getVans();
+  return defer({vans: getVans()});
 }
 
 export default function Vans() {
