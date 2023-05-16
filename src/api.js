@@ -55,3 +55,5 @@ export async function loginUser(creds) {
 //   statusText: res.statusText,
 //   status: res.status,
 // });
+
+// The problem above also makes the Error component not load on routes with errorElement
