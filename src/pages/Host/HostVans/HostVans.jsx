@@ -38,9 +38,7 @@ export default function HostVans() {
     <div>
       <h1>Your listed vans</h1>
       <Suspense fallback={<h2>Loading host vans...</h2>}>
-        <Await resolve={dataPromise.hostVans}> 
-          {renderHostVansElements}
-        </Await>
+        <Await resolve={dataPromise.hostVans}>{renderHostVansElements}</Await>
       </Suspense>
     </div>
   );

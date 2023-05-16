@@ -1,3 +1,6 @@
+// TODO: implement defer, Await, and Suspense
+// After following the same process for the other vans pages, I am getting a unique error for this page saying that 'name' is undefined in the console.
+
 import React from "react";
 import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 import { getHostVans } from "../../../api";

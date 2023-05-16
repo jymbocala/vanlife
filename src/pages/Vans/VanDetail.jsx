@@ -18,7 +18,6 @@ export default function VanDetail() {
 
   // TODO: comment use for location
   const location = useLocation();
-  // console.log(location);
 
   const search = location.state?.search || "";
   const linkSpanText = location.state?.type || "all";
@@ -50,9 +49,7 @@ export default function VanDetail() {
         &#8592; <span>Back to {`${linkSpanText}`} vans</span>
       </Link>
       <Suspense fallback={<h2>Loading van...</h2>}>
-        <Await resolve={dataPromise.van}>
-          {vansElements}
-        </Await>
+        <Await resolve={dataPromise.van}>{vansElements}</Await>
       </Suspense>
     </section>
   );
