@@ -18,7 +18,7 @@ import Login, {
 import Vans, { loader as vansLoader } from "./pages/Vans/Vans";
 import VanDetail, { loader as vanDetailLoader } from "./pages/Vans/VanDetail";
 import HostLayout from "./components/HostLayout";
-import Dashboard from "./pages/Host/Dashboard";
+import Dashboard, { loader as dashboardLoader } from "./pages/Host/Dashboard";
 import Income from "./pages/Host/Income";
 import Reviews from "./pages/Host/Reviews";
 import HostVans, {
@@ -61,7 +61,7 @@ const router = createBrowserRouter(
         <Route
           index
           element={<Dashboard />}
-          loader={async ({ request }) => await requireAuth(request)}
+          loader={dashboardLoader}
         />
         <Route
           path="income"

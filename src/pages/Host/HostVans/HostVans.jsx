@@ -11,6 +11,7 @@ export async function loader({ request }) {
 
 export default function HostVans() {
   const dataPromise = useLoaderData();
+  console.log(dataPromise.hostVans);
 
   //map out hostVans data into jsx elements
   function renderHostVansElements(hostVans) {
@@ -31,7 +32,7 @@ export default function HostVans() {
       );
     });
 
-    return <div className="host-van-list">{hostVansElements}</div>;
+    return <div className="host-vans-list">{hostVansElements}</div>;
   }
 
   return (
