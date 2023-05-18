@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection } from "firebase/firestore/lite"
+import { getFirestore, collection, getDocs } from "firebase/firestore/lite"
 
 // web app's Firebase configuration
 const firebaseConfig = {
@@ -19,20 +19,34 @@ const db = getFirestore(app);
 // Refactoring the fetching functions
 const vansCollectionRef = collection(db, "vans");
 
-// function to get vans from api. MirageJS intercepts the fetch
-export async function getVans(id) {
-  const url = id ? `/api/vans/${id}` : "/api/vans";
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw new Error({
-      message: "Failed to fetch vans",
-      statusText: res.statusText,
-      status: res.status,
-    });
-  }
-  const data = await res.json();
-  return data.vans;
+
+
+export async function getVans() {
+  // pass the collection reference that we want to get the documents from
+  const querySnapshot = await getDocs(vansCollectionRef);
+  //turn snapshot into data array
+  const dataArr = querySnapshot.docs.map(doc => ({
+    ...doc.data(),
+    id: doc.id
+  }))
+  console.log(dataArr);
+  return dataArr
 }
+
+// function to get vans from api. MirageJS intercepts the fetch
+// export async function getVans(id) {
+//   const url = id ? `/api/vans/${id}` : "/api/vans";
+//   const res = await fetch(url);
+//   if (!res.ok) {
+//     throw new Error({
+//       message: "Failed to fetch vans",
+//       statusText: res.statusText,
+//       status: res.status,
+//     });
+//   }
+//   const data = await res.json();
+//   return data.vans;
+// }
 
 export async function getHostVans(id) {
   const url = id ? `/api/host/vans/${id}` : "/api/host/vans";
