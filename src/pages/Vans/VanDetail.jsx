@@ -6,11 +6,11 @@ import {
   defer,
   Await,
 } from "react-router-dom";
-import { getVans } from "../../api";
+import { getVans, getVan } from "../../api";
 
 // loader function with params to get id of van
 export function loader({ params }) {
-  return defer({ van: getVans(params.id) });
+  return defer({ van: getVan(params.id) });
 }
 
 export default function VanDetail() {
