@@ -5,6 +5,8 @@ import {
   getDocs,
   doc,
   getDoc,
+  query,
+  where
 } from "firebase/firestore/lite";
 
 // web app's Firebase configuration
@@ -47,18 +49,16 @@ export async function getVan(id) {
   }
 }
 
-export async function getHostVans(id) {
-  const url = id ? `/api/host/vans/${id}` : "/api/host/vans";
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw {
-      message: "Failed to fetch vans",
-      statusText: res.statusText,
-      status: res.status,
-    };
-  }
-  const data = await res.json();
-  return data.vans;
+// Refactoring getHostVans functions
+export async function getHostVans() {
+  const q = query(vansCollectionRef, where("hostId", "==", "123"))
+  const querySnapshot = await getDocs(q);
+  //turn snapshot into data array
+  const dataArr = querySnapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
+  return dataArr;
 }
 
 // function that fetches to the login endpoint
