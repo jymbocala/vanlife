@@ -1,3 +1,18 @@
+import { initializeApp } from "firebase/app";
+
+// web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAKl9oERADVGAp7wZ_JkvBQKDO95ohA6bc",
+  authDomain: "vanlife-f0bb5.firebaseapp.com",
+  projectId: "vanlife-f0bb5",
+  storageBucket: "vanlife-f0bb5.appspot.com",
+  messagingSenderId: "631272701741",
+  appId: "1:631272701741:web:7b1ff2e716ce43a9f89da4"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 // function to get vans from api. MirageJS intercepts the fetch
 export async function getVans(id) {
   const url = id ? `/api/vans/${id}` : "/api/vans";
