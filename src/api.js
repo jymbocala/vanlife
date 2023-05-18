@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore/lite"
+import { getFirestore, collection } from "firebase/firestore/lite"
 
 // web app's Firebase configuration
 const firebaseConfig = {
@@ -17,6 +17,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Refactoring the fetching functions
+const vansCollectionRef = collection(db, "vans");
 
 // function to get vans from api. MirageJS intercepts the fetch
 export async function getVans(id) {
