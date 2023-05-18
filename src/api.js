@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore/lite"
 
 // web app's Firebase configuration
 const firebaseConfig = {
@@ -12,6 +13,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+// database obj is used whenever we need to interface with our app's firestore database
+const db = getFirestore(app);
+
+// Refactoring the fetching functions
 
 // function to get vans from api. MirageJS intercepts the fetch
 export async function getVans(id) {
