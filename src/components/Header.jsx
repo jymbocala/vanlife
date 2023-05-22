@@ -2,6 +2,11 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
+  function fakeLogOut() {
+    localStorage.removeItem("loggedin");
+    // console.log(localStorage.getItem("loggedin"));
+  }
+
   return (
     <header>
       <Link to="/" className="site-logo">
@@ -29,6 +34,7 @@ export default function Header() {
         <Link to="login" className="login-link">
           <i className="ri-account-circle-line login-icon"></i>
         </Link>
+        <button onClick={fakeLogOut}>X</button>
       </nav>
     </header>
   );
