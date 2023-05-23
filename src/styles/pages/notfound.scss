@@ -1,0 +1,14 @@
+@use "../base.scss";
+
+
+/* === NOT FOUND PAGE === */
+.not-found-container {
+  padding-inline: 26px;
+  margin-top: 4rem;
+}
+
+.not-found-container .link-button {
+  width: 100%;
+  background-color: base.$dark;
+  color: white;
+}

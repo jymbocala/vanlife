@@ -1,0 +1,47 @@
+@use "../base.scss";
+
+
+/* === ABOUT PAGE === */
+.about-page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-hero-image {
+  max-width: 100%;
+  align-self: center;
+}
+
+.about-page-content {
+  padding-inline: 23px;
+  color: base.$dark;
+  margin-bottom: 55px;
+
+  h1 {
+    line-height: 38px;
+  }
+
+  p {
+    line-height: 22px;
+  }
+}
+
+.about-page-cta {
+  background-color: #ffcc8d;
+  color: base.$dark;
+  padding-inline: 32px;
+  padding-bottom: 32px;
+  margin-inline: 27px;
+  border-radius: 5px;
+
+  h2 {
+    margin: 0;
+    padding-block: 37px;
+  }
+
+  .link-button {
+    background-color: base.$dark;
+    color: white;
+    border-radius: 10px;
+  }
+}

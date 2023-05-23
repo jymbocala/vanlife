@@ -1,0 +1,132 @@
+@use "../base.scss";
+
+
+/* === VANS PAGE === */
+.van-list-container {
+  padding: 2rem;
+}
+
+.van-list-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+
+  a {
+    margin-right: 15px;
+  }
+}
+
+.van-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  gap: 2.5rem;
+  margin-top: 2rem;
+
+  a {
+    color: base.$dark;
+    text-decoration: none;
+  }
+}
+
+.van-tile img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.van-type {
+  height: 34px;
+  padding: 6px 26px;
+  margin-right: 1.2rem;
+  font-style: normal;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  background-color: base.$champagne;
+  color: base.$dark-grey;
+  transition: 300ms all cubic-bezier(0.4, 0, 0.2, 1);
+
+  .van-type:hover {
+    color: base.$champagne;
+  }
+  
+  .van-type:focus {
+    outline: none;
+  }
+}
+
+.van-type.selected {
+  color: base.$champagne;
+}
+
+.van-type.simple:hover,
+.van-type.simple.selected {
+  background-color: #e17654;
+}
+
+.van-type.rugged:hover,
+.van-type.rugged.selected {
+  background-color: #115e59;
+}
+
+.van-type.luxury:hover,
+.van-type.luxury.selected {
+  background-color: base.$dark;
+}
+
+.van-type.clear-filters {
+  margin-left: -20px;
+  height: 34px;
+  padding: 6px 26px;
+  font-style: normal;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  text-decoration: underline;
+  background-color: transparent;
+  color: base.$dark-grey;
+}
+
+.van-detail-container {
+  padding-inline: 2rem;
+  margin-top: 3rem;  
+}
+
+.van-detail {
+  display: flex;
+  flex-direction: column;
+  color: base.$dark;
+
+  img {
+    width: 60%;
+    align-self: center;
+    border-radius: 5px;
+    margin: 3rem 0;
+  }
+
+  i {
+    align-self: flex-start;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .van-price {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+
+    span {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  }
+
+  .link-button {
+    background-color: #ff8c38;
+    color: white;
+    font-size: 1.125rem;
+    margin-top: 2rem;
+  }
+}

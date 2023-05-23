@@ -1,0 +1,16 @@
+$light: #fff7ed;
+$champagne: #FFEAD0;
+$dark: #161616;
+$dark-grey: #4d4d4d;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $light;
+  font-family: "Inter", sans-serif;
+}
